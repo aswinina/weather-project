@@ -24,23 +24,27 @@ function formatDate(date) {
 }
 
 function displayWeatherCondition(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#temprature").innerHTML = Math.round(
-    response.data.main.temp
+    response.data.temperature.current
   );
-
+  document.querySelector("#date").innerHTML = new Date(
+    response.data.time * 1000
+  );
   let humidity = document.querySelector("#humidity");
-  let disply = response.data.main.humidity;
+  let disply = response.data.temperature.humidity;
   humidity.innerHTML = `humidity : ${disply}%`;
 
   let wind = document.querySelector("#wind");
   let speed = Math.round(response.data.wind.speed);
-  wind.innerHTML = `Wind : ${speed}km/h`;
+  wind.innerHTML = `Wind : ${speed}km`;
 
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
   let iconElement = document.querySelector("#icon");
 
+  celsiusTemperature = response.data.temperature.current;
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -49,8 +53,8 @@ function displayWeatherCondition(response) {
 }
 
 function searchCity(city) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "3d249bt9daobf40e979808326e2bf43a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
@@ -59,11 +63,40 @@ function handleSubmit(event) {
   let city = document.querySelector("#search-city-input").value;
   searchCity(city);
 }
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temprature");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temprature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 function searchLocation(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
+  console.log(position.data);
+  let apiKey = "3d249bt9daobf40e979808326e2bf43a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
+  // let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=55.736468&lon=12.5088728&key=3d249bt9daobf40e979808326e2bf43a&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
@@ -72,21 +105,9 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 66;
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
-}
-
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
-dateElement.innerHTML = formatDate(currentTime);
+//dateElement.innerHTML = formatDate(currentTime);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
