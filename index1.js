@@ -31,11 +31,11 @@ function displayWeatherCondition(response) {
 
   let humidity = document.querySelector("#humidity");
   let disply = response.data.main.humidity;
-  humidity.innerHTML = `humidity : ${disply}`;
+  humidity.innerHTML = `humidity : ${disply}%`;
 
   let wind = document.querySelector("#wind");
   let speed = Math.round(response.data.wind.speed);
-  wind.innerHTML = `Wind : ${speed}`;
+  wind.innerHTML = `Wind : ${speed}km/h`;
 
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
