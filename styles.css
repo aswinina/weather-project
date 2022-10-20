@@ -1,6 +1,6 @@
 body {
   font-family: Google Sans, arial, sans-serif;
-  background: rgb(161, 157, 148);
+  background: rgb(255, 255, 254);
 }
 h1 {
   color: #202124;
@@ -17,6 +17,7 @@ ul {
 li {
   color: #202124;
   font-size: 16px;
+  padding: 0px;
   font-weight: 100;
   line-height: 1;
   list-style: none;
@@ -40,7 +41,7 @@ button {
   margin-bottom: 0;
   padding: 10px 30px;
   max-width: 700px;
-  background: rgb(204, 242, 245);
+  background: rgb(198, 208, 209);
 }
 .weather-icon {
   height: 74px;
@@ -56,13 +57,15 @@ button {
   padding: 0px 0 20px;
 }
 .units {
+  color: #202124;
   position: relative;
   top: -32px;
+  text-decoration: none;
 }
 .search-form {
   margin-bottom: 10px;
 }
-.float-left {
+.Flexbox {
   margin-bottom: 10px;
   padding: 0px;
   width: 200;
