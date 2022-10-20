@@ -40,10 +40,7 @@ function displayWeatherCondition(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.time * 1000);
-  iconElement.setAttribute(
-    "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-night.png`
-  );
+  iconElement.setAttribute("src", response.data.condition.icon_url);
 }
 function searchCity(city) {
   let apiKey = "3d249bt9daobf40e979808326e2bf43a";
