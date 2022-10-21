@@ -30,7 +30,6 @@
               />
             </div>
             <div class="col-3">
-          
               <input
                 type="submit"
                 value="search"
@@ -38,11 +37,17 @@
               />
             </div>
             <div class="col-3" id="city-input">
-              <button type="button" class="btn btn-success w-100" id="current-location-button">
-                current</button>
+              <button
+                type="button"
+                class="btn btn-success w-100"
+                id="current-location-button"
+              >
+                current
+              </button>
+            </div>
           </div>
         </form>
-        <h1 class="city"  id="city">København</h1>
+        <h1 class="city" id="city">København</h1>
         <ul>
           <li><span id="date"></span></li>
           <li id="description"></li>
@@ -50,16 +55,11 @@
         <div class="row">
           <div class="col-6">
             <div class="Flexbox">
-              <img
-                src=""
-                alt="Clear"
-                class="Flexbox"
-                id="icon"
-              />
-              <div class="Flexbox " >
+              <img src="" alt="Clear" class="Flexbox" id="icon" />
+              <div class="Flexbox">
                 <span class="temprature" id="temprature"></span>
                 <span class="units"
-                  ><a href="" id="celsius-link"> °C </a> | 
+                  ><a href="" id="celsius-link"> °C </a> |
                   <a href="" id="fahrenheit-link">°F</a></span
                 >
               </div>
@@ -67,95 +67,18 @@
           </div>
           <div class="col-6">
             <ul>
-              <li>Humidity:<span id="humidity"></span>% </li>
-              <li>Wind Speed:<span id="wind"></span>km/h </li>
+              <li>Humidity:<span id="humidity"></span>%</li>
+              <li>Wind Speed:<span id="wind"></span>km/h</li>
             </ul>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-2">
-            <div class="card border-0">
-              <div class="card-body">
-                <h5 class="card-title">Lør</h5>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-                  alt="cludy icon"
-                  class="sunny"
-                /><br />
-                <span class="temprature1"
-                  ><strong> 14°</strong><small> 8°</small></span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card border-0">
-              <div class="card-body">
-                <h5 class="card-title">Søn</h5>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="cludy icon"
-                  class="sunny"
-                  
-                /><br />
-                <span class="temprature1"
-                  ><strong> 15°</strong><small> 11°</small></span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card border-0">
-              <div class="card-body">
-                <h5 class="card-title">Man</h5>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
-                  alt="cludy icon"
-                  class="sunny"
-                /><br />
-                <span class="temprature1"
-                  ><strong> 14°</strong><small> 9°</small></span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card border-0">
-              <div class="card-body">
-                <h5 class="card-title">Tir</h5>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="cludy icon"
-                  class="sunny"
-                /><br />
-                <span class="temprature1"
-                  ><strong> 13°</strong><small> 9°</small></span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card border-0">
-              <div class="card-body">
-                <h5 class="card-title">ons</h5>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="cludy icon"
-                  class="sunny"
-                  
-                /><br />
-                <span class="temprature1"
-                  ><strong> 14°</strong><small> 9°</small></span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="weather-forecast" id="forecast"></div>
       </div>
     </div>
-    <script src="index1.js"></script>
+    <script src="index.js"></script>
   </body>
   <h3 class="link">
-    <a href="https://github.com/aswinina/weather-project" > Open-source code </a>  by Aswini Sureddy</h3>
+    <a href="https://github.com/aswinina/weather-project"> Open-source code </a>
+    by Aswini Sureddy
+  </h3>
 </html>
