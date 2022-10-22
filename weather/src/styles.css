@@ -1,6 +1,6 @@
 body {
   font-family: Google Sans, arial, sans-serif;
-  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+  background: rgb(240, 241, 239);
 }
 h1 {
   color: #202124;
@@ -20,13 +20,21 @@ li {
   line-height: 1;
   list-style: none;
 }
+.link {
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 0;
+  padding: 0;
+}
 .weather-app {
   border: 1px solid #b5b6b8;
   border-radius: 10px;
   margin: 30px auto;
+  margin-bottom: 0px;
   padding: 10px 30px;
   max-width: 700px;
-  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+  background: rgb(211, 228, 230);
 }
 .weather-icon {
   height: 74px;
